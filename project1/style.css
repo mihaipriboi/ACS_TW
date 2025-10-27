@@ -1,0 +1,480 @@
+/* --- 1. Paleta de Culori & Setări Globale (Dark Mode) --- */
+:root {
+  /* Paleta ta Portocalie */
+  --primary-color: #FD6726;
+  --primary-color-dark: #cb521e;  /* Mai închis pentru hover */
+  --primary-color-light: #ff8c56; /* Mai deschis pentru accente */
+  --gradient-primary: linear-gradient(90deg, var(--primary-color-dark), var(--primary-color), var(--primary-color-dark));
+  --gradient-active: linear-gradient(90deg, var(--primary-color), var(--primary-color-light));
+
+  /* Paleta Dark Mode Ergonomic */
+  --bg-color: #1a1a1a;  /* Fundal principal (gri-închis, nu negru) */
+  --surface-color: #242424; /* Fundal pentru "carduri", header, main */
+  --text-color: #c9c9c9;  /* Text principal (gri-deschis, nu alb) */
+  --text-color-muted: #888; /* Text secundar */
+}
+
+/* --- 2. Setări de Bază (Body) --- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: var(--bg-color); /* Aplicăm fundalul dark */
+  color: var(--text-color);  /* Aplicăm textul deschis */
+  transition: background-color 0.3s, color 0.3s;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+  color: var(--primary-color); /* Titlurile ies în evidență cu portocaliu */
+  margin-bottom: 0.5em;
+  /* Efect subtil de "glow" pentru titluri */
+  text-shadow: 0 0 8px rgba(253, 103, 38, 0.25);
+}
+
+p {
+  margin-bottom: 1em;
+  color: var(--text-color);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-color-light);
+}
+
+/* --- 3. Header & Navigație (Cu animații) --- */
+header {
+  background: var(--surface-color);
+  /* Folosim culoarea primară pentru bordura de jos */
+  border-bottom: 2px solid var(--primary-color); 
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  /* O umbră adaptată pentru dark mode */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3); 
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  /* text-shadow: 0 0 10px var(--primary-color); */
+}
+
+header nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+header nav li {
+  display: inline-block;
+  margin-left: 10px; /* Spațiu mai mic, butoanele sunt mai mari */
+}
+
+/* Stilul butoanelor din navigație */
+header nav a {
+  display: inline-block; /* Permite setarea padding & min-width */
+  padding: 0.75rem 1.5rem; /* Mai mari */
+  min-width: 100px;  /* Aceeași lățime minimă */
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 2px;
+  
+  /* Setăm bordura gradient folosind border-image */
+  /* border-image: var(--gradient-primary) 1; */
+  
+  background: transparent; /* Fundal transparent by default */
+  color: var(--primary-color);
+  transition: all 0.3s ease-out; /* Animație faină */
+}
+
+/* Efectul de HOVER pe butoane */
+header nav a:hover {
+  background: var(--gradient-active); /* Fundal gradient */
+  color: var(--text-color);  /* Text închis */
+  border-image: none;     /* Fără bordură gradient */
+  border-color: transparent;    /* Fără bordură */
+  transform: translateY(-2px);  /* Ridică ușor butonul */
+  box-shadow: 0 5px 15px rgba(253, 103, 38, 0.3);
+}
+
+/* Pagina ACTIVĂ */
+header nav a.active {
+  background: var(--gradient-active); /* Fundal gradient */
+  color: var(--text-color);  /* Text închis */
+  border-image: none;     /* Fără bordură gradient */
+  border-color: transparent;    /* Fără bordură */
+  box-shadow: 0 2px 10px rgba(253, 103, 38, 0.2);
+}
+
+/* --- 4. Main Content --- */
+main {
+  padding: 2rem 0;
+  background: var(--surface-color); /* Fundalul principal al conținutului */
+  /* border-radius: 10px; */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  /* Separăm 'main' de 'body' */
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+/* --- 5. Footer --- */
+footer {
+  background: var(--bg-color); /* Același fundal ca body */
+  color: var(--text-color-muted); /* Text estompat */
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 0; /* Am scos marginea de sus */
+  border-top: 1px solid var(--surface-color); /* O linie fină de separare */
+}
+
+/* --- 6. Pagina Acasă (Efectul de ZOOM) --- */
+#hero {
+  display: flex;
+  /* align-items: center; */
+  gap: 2.5rem;
+}
+
+/* Containerul care ține poza */
+.profile-pic-container {
+  width: 250px;
+  height: 250px;
+  flex-shrink: 0; /* Nu lăsăm containerul să se micșoreze */
+  border-radius: 50%;
+  overflow: hidden;
+
+  margin-top: 2em;
+  
+  /* Efect de "glow" */
+  box-shadow: 0 0 25px rgba(253, 103, 38, 0.4);
+  transition: box-shadow 0.3s ease;
+}
+
+.profile-pic-container:hover {
+  box-shadow: 0 0 35px rgba(253, 103, 38, 0.6); /* Glow mai puternic la hover */
+}
+
+/* Poza din interior */
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease-out; /* Animația de zoom */
+}
+
+/* Efectul de zoom la hover PE CONTAINER */
+.profile-pic-container:hover .profile-pic {
+  transform: scale(1.15); /* Mărește poza, dar e tăiată de container */
+}
+
+.bio-content {
+  flex: 1;
+}
+
+/* --- 7. Pagina CV --- */
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+.cv-section h3 {
+  border-bottom: 1px solid var(--surface-color);
+  padding-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.cv-item {
+  margin-bottom: 1rem;
+  padding-left: 10px;
+  border-left: 3px solid var(--primary-color-dark);
+}
+
+.cv-download {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Butonul de Download (și alte butoane) */
+.download-btn, .submit-btn {
+  color: var(--primary-color);
+  padding: 0.8rem 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+
+  /* like the nav buttons */
+  border: 1px solid var(--primary-color);
+  border-radius: 2px;
+  background: transparent;
+
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-btn:hover, .submit-btn:hover {
+  background: var(--gradient-active);
+  color: var(--text-color);
+  border-color: transparent;
+  transform: translateY(-3px); /* Se ridică puțin */
+  box-shadow: 0 8px 15px rgba(253, 103, 38, 0.25);
+}
+
+/* --- 8. Pagina Contact (Formular Dark Mode) --- */
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--primary-color-light); /* Etichete mai vizibile */
+}
+
+.contact-form input[type="text"],
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--text-color-muted); /* Bordură gri */
+  border-radius: 8px;
+  box-sizing: border-box; 
+  background-color: var(--bg-color); /* Fundalul câmpului */
+  color: var(--text-color);     /* Textul scris de user */
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Stilizare la FOCUS (când userul scrie) */
+.contact-form input[type="text"]:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color); /* Bordura devine portocalie */
+  box-shadow: 0 0 10px rgba(253, 103, 38, 0.4); /* Glow portocaliu */
+}
+
+/* --- 9. Responsivitate (Rămâne la fel) --- */
+@media (max-width: 768px) {
+  header .container {
+  flex-direction: column;
+  gap: 10px;
+  }
+  
+  header nav ul {
+  text-align: center;
+  }
+
+  header nav li {
+  margin-left: 5px;
+  margin-right: 5px;
+  }
+
+  #hero {
+  flex-direction: column;
+  text-align: center;
+  }
+  
+  .cv-header {
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+  }
+
+  /* Pe mobil, 'main' se lipește de margini */
+  main {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0;
+  }
+}
+
+/* --- 10. Stiluri pentru CV (Format LaTeX) --- */
+
+/* Ascunde secțiunile vechi de CV dacă mai există */
+#educatie, #competente, #experienta {
+  display: none;
+}
+
+.cv-main-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--surface-color); /* Separator fin */
+}
+
+.cv-main-header h1 {
+  font-size: 2.8rem;
+  margin: 0;
+  color: var(--primary-color-light); /* Numele să iasă în evidență */
+}
+
+.cv-main-header .contact-info {
+  font-size: 0.9rem;
+  color: var(--text-color-muted);
+}
+.cv-main-header .contact-info a {
+  color: var(--text-color);
+  font-weight: 500;
+}
+.cv-main-header .contact-info a:hover {
+  color: var(--primary-color);
+}
+
+
+.cv-main-section {
+  margin-bottom: 1.5rem;
+}
+
+.cv-main-section h2 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.cv-entry {
+  margin-bottom: 1.5rem;
+}
+
+.cv-entry-header, .cv-entry-subheader {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Pentru ecrane mici */
+  margin-bottom: 0.25rem;
+}
+
+.cv-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.cv-location {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-color-muted);
+}
+
+.cv-degree {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-color);
+}
+
+.cv-date {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-color-muted);
+}
+
+.cv-entry-list {
+  margin-top: 0.75rem;
+  padding-left: 20px;
+  color: var(--text-color);
+}
+.cv-entry-list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.cv-awards-list p, .cv-skills p, .cv-project p {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.cv-awards-list strong, .cv-skills strong, .cv-project-title strong {
+  color: var(--text-color);
+}
+
+.cv-project {
+  margin-bottom: 1rem;
+}
+
+/* --- 11. Stiluri Biografie (Pagina Acasă) --- */
+.biografie h3 {
+  font-size: 1.8rem;
+  color: var(--primary-color-light);
+  margin-bottom: 0.5rem;
+}
+
+.biografie h4 {
+  font-size: 1.4rem;
+  color: var(--primary-color);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.bio-list {
+  padding-left: 20px;
+}
+
+.bio-list li {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.bio-list li strong {
+  color: var(--text-color);
+}
+
+/* Stil pentru link-urile de socializare */
+.social-links {
+  list-style-type: none; /* Fără bullets */
+  padding-left: 0;
+}
+
+.social-links li {
+  /* Le punem pe aceeași linie */
+  display: inline-block; 
+  margin-right: 25px;
+}
+
+.social-links li a {
+  display: flex; /* Aliniază iconița cu textul */
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  transition: color 0.3s;
+}
+
+.social-links li a:hover {
+  color: var(--primary-color-light);
+}
+
+.social-links li a .material-icons-outlined {
+  margin-right: 8px; /* Spațiu între iconiță și text */
+  font-size: 1.4rem; /* Mărimea iconiței */
+  /* Aliniere verticală */
+  position: relative;
+  top: 1px;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Priboi Luca Mihai</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="contact.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Priboi Luca Mihai</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Acasă</a></li>
+          <li><a href="cv.html">CV</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h2>Contactează-mă</h2>
+      <p>Poți folosi formularul de mai jos pentru a-mi trimite un email. Acesta va deschide clientul tău de email implicit.</p>
+
+      <form id="contactForm" class="contact-form">
+        <div class="form-group">
+          <label for="name">Numele tău:</label>
+          <input type="text" id="name" name="nume" required>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subiect:</label>
+          <input type="text" id="subject" name="subject" required>
+        </div>
+
+        <div class="form-group">
+          <label for="body">Mesaj:</label>
+          <textarea id="body" name="body" rows="8" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="submit-btn">Trimite Email</button>
+        </div>
+      </form>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Priboi Luca Mihai. Toate drepturile rezervate.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
