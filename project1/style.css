@@ -1,27 +1,24 @@
-/* --- 1. Paleta de Culori & Setări Globale (Dark Mode) --- */
 :root {
-  /* Paleta ta Portocalie */
   --primary-color: #FD6726;
-  --primary-color-dark: #cb521e;  /* Mai închis pentru hover */
-  --primary-color-light: #ff8c56; /* Mai deschis pentru accente */
+  --primary-color-dark: #cb521e; 
+  --primary-color-light: #ff8c56;
   --gradient-primary: linear-gradient(90deg, var(--primary-color-dark), var(--primary-color), var(--primary-color-dark));
   --gradient-active: linear-gradient(90deg, var(--primary-color), var(--primary-color-light));
 
-  /* Paleta Dark Mode Ergonomic */
-  --bg-color: #1a1a1a;  /* Fundal principal (gri-închis, nu negru) */
-  --surface-color: #242424; /* Fundal pentru "carduri", header, main */
-  --text-color: #c9c9c9;  /* Text principal (gri-deschis, nu alb) */
-  --text-color-muted: #888; /* Text secundar */
+  --bg-color: #1a1a1a; 
+  --surface-color: #242424;
+  --text-color: #c9c9c9; 
+  --text-color-muted: #888;
 }
 
-/* --- 2. Setări de Bază (Body) --- */
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background-color: var(--bg-color); /* Aplicăm fundalul dark */
-  color: var(--text-color);  /* Aplicăm textul deschis */
+  background-color: var(--bg-color);
+  color: var(--text-color); 
   transition: background-color 0.3s, color 0.3s;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -34,9 +31,9 @@ body {
 }
 
 h1, h2, h3, h4 {
-  color: var(--primary-color); /* Titlurile ies în evidență cu portocaliu */
+  color: var(--primary-color);
   margin-bottom: 0.5em;
-  /* Efect subtil de "glow" pentru titluri */
+ 
   text-shadow: 0 0 8px rgba(253, 103, 38, 0.25);
 }
 
@@ -55,16 +52,16 @@ a:hover {
   color: var(--primary-color-light);
 }
 
-/* --- 3. Header & Navigație (Cu animații) --- */
+
 header {
   background: var(--surface-color);
-  /* Folosim culoarea primară pentru bordura de jos */
+ 
   border-bottom: 2px solid var(--primary-color); 
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 10;
-  /* O umbră adaptată pentru dark mode */
+ 
   box-shadow: 0 2px 10px rgba(0,0,0,0.3); 
 }
 
@@ -77,7 +74,7 @@ header .container {
 header h1 {
   margin: 0;
   font-size: 1.8rem;
-  /* text-shadow: 0 0 10px var(--primary-color); */
+ 
 }
 
 header nav ul {
@@ -88,112 +85,112 @@ header nav ul {
 
 header nav li {
   display: inline-block;
-  margin-left: 10px; /* Spațiu mai mic, butoanele sunt mai mari */
+  margin-left: 10px;
 }
 
-/* Stilul butoanelor din navigație */
+
 header nav a {
-  display: inline-block; /* Permite setarea padding & min-width */
-  padding: 0.75rem 1.5rem; /* Mai mari */
-  min-width: 100px;  /* Aceeași lățime minimă */
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  min-width: 100px; 
   text-align: center;
   font-weight: bold;
   font-size: 1rem;
   border: 1px solid var(--primary-color);
   border-radius: 2px;
   
-  /* Setăm bordura gradient folosind border-image */
-  /* border-image: var(--gradient-primary) 1; */
+ 
+ 
   
-  background: transparent; /* Fundal transparent by default */
+  background: transparent;
   color: var(--primary-color);
-  transition: all 0.3s ease-out; /* Animație faină */
+  transition: all 0.3s ease-out;
 }
 
-/* Efectul de HOVER pe butoane */
+
 header nav a:hover {
-  background: var(--gradient-active); /* Fundal gradient */
-  color: var(--text-color);  /* Text închis */
-  border-image: none;     /* Fără bordură gradient */
-  border-color: transparent;    /* Fără bordură */
-  transform: translateY(-2px);  /* Ridică ușor butonul */
+  background: var(--gradient-active);
+  color: var(--text-color); 
+  border-image: none;    
+  border-color: transparent;   
+  transform: translateY(-2px); 
   box-shadow: 0 5px 15px rgba(253, 103, 38, 0.3);
 }
 
-/* Pagina ACTIVĂ */
+
 header nav a.active {
-  background: var(--gradient-active); /* Fundal gradient */
-  color: var(--text-color);  /* Text închis */
-  border-image: none;     /* Fără bordură gradient */
-  border-color: transparent;    /* Fără bordură */
+  background: var(--gradient-active);
+  color: var(--text-color); 
+  border-image: none;    
+  border-color: transparent;   
   box-shadow: 0 2px 10px rgba(253, 103, 38, 0.2);
 }
 
-/* --- 4. Main Content --- */
+
 main {
   padding: 2rem 0;
-  background: var(--surface-color); /* Fundalul principal al conținutului */
-  /* border-radius: 10px; */
+  background: var(--surface-color);
+ 
   margin-top: 2rem;
   margin-bottom: 2rem;
-  /* Separăm 'main' de 'body' */
+ 
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
 
-/* --- 5. Footer --- */
+
 footer {
-  background: var(--bg-color); /* Același fundal ca body */
-  color: var(--text-color-muted); /* Text estompat */
+  background: var(--bg-color);
+  color: var(--text-color-muted);
   text-align: center;
   padding: 2rem 0;
-  margin-top: 0; /* Am scos marginea de sus */
-  border-top: 1px solid var(--surface-color); /* O linie fină de separare */
+  margin-top: 0;
+  border-top: 1px solid var(--surface-color);
 }
 
-/* --- 6. Pagina Acasă (Efectul de ZOOM) --- */
+
 #hero {
   display: flex;
-  /* align-items: center; */
+ 
   gap: 2.5rem;
 }
 
-/* Containerul care ține poza */
+
 .profile-pic-container {
   width: 250px;
   height: 250px;
-  flex-shrink: 0; /* Nu lăsăm containerul să se micșoreze */
+  flex-shrink: 0;
   border-radius: 50%;
   overflow: hidden;
 
   margin-top: 2em;
   
-  /* Efect de "glow" */
+ 
   box-shadow: 0 0 25px rgba(253, 103, 38, 0.4);
   transition: box-shadow 0.3s ease;
 }
 
 .profile-pic-container:hover {
-  box-shadow: 0 0 35px rgba(253, 103, 38, 0.6); /* Glow mai puternic la hover */
+  box-shadow: 0 0 35px rgba(253, 103, 38, 0.6);
 }
 
-/* Poza din interior */
+
 .profile-pic {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease-out; /* Animația de zoom */
+  transition: transform 0.4s ease-out;
 }
 
-/* Efectul de zoom la hover PE CONTAINER */
+
 .profile-pic-container:hover .profile-pic {
-  transform: scale(1.15); /* Mărește poza, dar e tăiată de container */
+  transform: scale(1.15);
 }
 
 .bio-content {
   flex: 1;
 }
 
-/* --- 7. Pagina CV --- */
+
 .cv-header {
   display: flex;
   justify-content: space-between;
@@ -220,7 +217,7 @@ footer {
   justify-content: center;
 }
 
-/* Butonul de Download (și alte butoane) */
+
 .download-btn, .submit-btn {
   color: var(--primary-color);
   padding: 0.8rem 1.5rem;
@@ -230,7 +227,7 @@ footer {
   letter-spacing: 0.5px;
   cursor: pointer;
 
-  /* like the nav buttons */
+ 
   border: 1px solid var(--primary-color);
   border-radius: 2px;
   background: transparent;
@@ -242,11 +239,11 @@ footer {
   background: var(--gradient-active);
   color: var(--text-color);
   border-color: transparent;
-  transform: translateY(-3px); /* Se ridică puțin */
+  transform: translateY(-3px);
   box-shadow: 0 8px 15px rgba(253, 103, 38, 0.25);
 }
 
-/* --- 8. Pagina Contact (Formular Dark Mode) --- */
+
 .contact-form .form-group {
   margin-bottom: 1.5rem;
 }
@@ -255,31 +252,31 @@ footer {
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
-  color: var(--primary-color-light); /* Etichete mai vizibile */
+  color: var(--primary-color-light);
 }
 
 .contact-form input[type="text"],
 .contact-form textarea {
   width: 100%;
   padding: 12px;
-  border: 2px solid var(--text-color-muted); /* Bordură gri */
+  border: 2px solid var(--text-color-muted);
   border-radius: 8px;
   box-sizing: border-box; 
-  background-color: var(--bg-color); /* Fundalul câmpului */
-  color: var(--text-color);     /* Textul scris de user */
+  background-color: var(--bg-color);
+  color: var(--text-color);    
   font-size: 1rem;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-/* Stilizare la FOCUS (când userul scrie) */
+
 .contact-form input[type="text"]:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-color: var(--primary-color); /* Bordura devine portocalie */
-  box-shadow: 0 0 10px rgba(253, 103, 38, 0.4); /* Glow portocaliu */
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(253, 103, 38, 0.4);
 }
 
-/* --- 9. Responsivitate (Rămâne la fel) --- */
+
 @media (max-width: 768px) {
   header .container {
   flex-direction: column;
@@ -306,7 +303,7 @@ footer {
   text-align: center;
   }
 
-  /* Pe mobil, 'main' se lipește de margini */
+ 
   main {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -314,9 +311,9 @@ footer {
   }
 }
 
-/* --- 10. Stiluri pentru CV (Format LaTeX) --- */
 
-/* Ascunde secțiunile vechi de CV dacă mai există */
+
+
 #educatie, #competente, #experienta {
   display: none;
 }
@@ -325,13 +322,13 @@ footer {
   text-align: center;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 2px solid var(--surface-color); /* Separator fin */
+  border-bottom: 2px solid var(--surface-color);
 }
 
 .cv-main-header h1 {
   font-size: 2.8rem;
   margin: 0;
-  color: var(--primary-color-light); /* Numele să iasă în evidență */
+  color: var(--primary-color-light);
 }
 
 .cv-main-header .contact-info {
@@ -368,7 +365,7 @@ footer {
 .cv-entry-header, .cv-entry-subheader {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap; /* Pentru ecrane mici */
+  flex-wrap: wrap;
   margin-bottom: 0.25rem;
 }
 
@@ -419,7 +416,7 @@ footer {
   margin-bottom: 1rem;
 }
 
-/* --- 11. Stiluri Biografie (Pagina Acasă) --- */
+
 .biografie h3 {
   font-size: 1.8rem;
   color: var(--primary-color-light);
@@ -446,20 +443,20 @@ footer {
   color: var(--text-color);
 }
 
-/* Stil pentru link-urile de socializare */
+
 .social-links {
-  list-style-type: none; /* Fără bullets */
+  list-style-type: none;
   padding-left: 0;
 }
 
 .social-links li {
-  /* Le punem pe aceeași linie */
+ 
   display: inline-block; 
   margin-right: 25px;
 }
 
 .social-links li a {
-  display: flex; /* Aliniază iconița cu textul */
+  display: flex;
   align-items: center;
   font-weight: bold;
   font-size: 1.1rem;
@@ -472,9 +469,9 @@ footer {
 }
 
 .social-links li a .material-icons-outlined {
-  margin-right: 8px; /* Spațiu între iconiță și text */
-  font-size: 1.4rem; /* Mărimea iconiței */
-  /* Aliniere verticală */
+  margin-right: 8px;
+  font-size: 1.4rem;
+ 
   position: relative;
   top: 1px;
 }
