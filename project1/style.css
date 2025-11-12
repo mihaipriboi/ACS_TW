@@ -88,7 +88,6 @@ header nav li {
   margin-left: 10px;
 }
 
-
 header nav a {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -98,9 +97,6 @@ header nav a {
   font-size: 1rem;
   border: 1px solid var(--primary-color);
   border-radius: 2px;
-  
- 
- 
   
   background: transparent;
   color: var(--primary-color);
