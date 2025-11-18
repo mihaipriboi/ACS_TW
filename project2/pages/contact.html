@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Priboi Luca Mihai</title>
+
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/contact.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <script src="contact.js"></script>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <a href="https://mihaipriboi.github.io/ACS_TW/">
+        <img src="../images/logo.svg" alt="Logo" class="logo">
+      </a>
+
+      <input type="checkbox" id="menu-toggle">
+      
+      <label for="menu-toggle" class="hamburger">
+        <i class="fa-solid fa-bars open-icon"></i>
+        <i class="fa-solid fa-xmark close-icon"></i>
+      </label>
+      
+      <nav>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../pages/cv.html">CV</a></li>
+          <li><a href="../pages/portofolio.html">Portfolio</a></li>
+          <li><a href="../pages/contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h2>Contact Me</h2>
+      <p>You can use the form below to send me an email. It will open your default email client.</p>
+
+      <form id="contactForm" class="contact-form">
+        <div class="form-group">
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject:</label>
+          <input type="text" id="subject" name="subject" required>
+        </div>
+
+        <div class="form-group">
+          <label for="body">Message:</label>
+          <textarea id="body" name="body" rows="8" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="submit-btn">Send Email</button>
+        </div>
+      </form>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-col brand-col">
+          <img src="../images/logo.svg" alt="Logo" class="footer-logo">
+          <p class="copyright">&copy; 2025 Priboi Luca Mihai.</p>
+        </div>
+
+        <div class="footer-col links-col">
+          <h3>Navigation</h3>
+          <ul class="footer-nav">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../pages/cv.html">CV</a></li>
+            <li><a href="../pages/portofolio.html">Portfolio</a></li>
+            <li><a href="../pages/contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col social-col">
+          <h3>Socials</h3>
+          <div class="social-icons">
+            <a href="https://github.com/mihaipriboi" target="_blank" aria-label="GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/mihai-priboi-822788327" target="_blank" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+
+            <a href="mailto:mihailucapriboi@gmail.com" aria-label="Email">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

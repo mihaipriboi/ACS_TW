@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* ---------------------------
+        VARIABLES & RESET
+   --------------------------- */
+:root {
+  --primary-color: #FD6726;
+  --primary-color-dark: #cb521e; 
+  --primary-color-light: #ff8c56;
+  --gradient-primary: linear-gradient(90deg, var(--primary-color-dark), var(--primary-color), var(--primary-color-dark));
+  --gradient-active: linear-gradient(90deg, var(--primary-color), var(--primary-color-light));
+
+  --bg-color: #1a1a1a; 
+  --surface-color: #242424;
+  --text-color: #c9c9c9; 
+  --text-color-muted: #888;
+}
+
+body {
+  font-family: 'Poppins', sans-serif; 
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color); 
+  transition: background-color 0.3s, color 0.3s;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1, h2, h3, h4 {
+  color: #ffffff;          /* Pure White */
+  font-weight: 300;        /* Thin (requires your Poppins 300 import) */
+  letter-spacing: 0.5px;   /* Slight spacing for that airy look */
+  margin-bottom: 0.8em;    /* Extra space for the line */
+  text-shadow: none;       /* Remove the old glow for a cleaner look */
+  
+  /* These are required to make the line match the text width */
+  display: inline-block;
+  position: relative;
+}
+
+/* The Gradient Underscore */
+h1::after, h2::after, h3::after, h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;            /* Distance from the text */
+  width: 110%;             /* Width matches the text exactly */
+  height: 2px;             /* Thin elegance */
+  background: var(--gradient-primary); /* The Orange Gradient */
+  border-radius: 2px;
+}
+
+p {
+  margin-bottom: 1em;
+  color: var(--text-color);
+  font-weight: 400; /* Normal */
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 300; /* Light/Thin look */
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-color-light);
+}
+
+/* ---------------------------
+      HEADER & NAVIGATION
+   --------------------------- */
+header {
+  background: var(--surface-color);
+  border-bottom: 2px solid var(--primary-color); 
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3); 
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo Sizing */
+header .logo {
+  height: 80px; /* Adjust based on your logo needs */
+  vertical-align: middle;
+}
+
+/* 1. Reset the list structure to look like a flex row */
+header nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex; /* Flexbox makes alignment easier than inline-block */
+  gap: 30px;     /* Space between the text links */
+}
+
+header nav li {
+  margin: 0; /* Reset margin since we use gap above */
+}
+
+/* 2. The Link Styling (Thin, White, Clean) */
+header nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;             /* White text */
+  font-weight: 300;        /* Thin text (requires Poppins 300 import) */
+  font-size: 1.1rem;
+  padding: 5px 0;          /* Slight padding top/bottom for breathing room */
+  position: relative;      /* Needed to position the underscore */
+  transition: all 0.3s ease;
+}
+
+/* 3. Hover State: Move Up + Turn Orange */
+header nav a:hover {
+  color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+/* 4. Active State: The Gradient Underscore */
+header nav a.active {
+  color: #fff; /* Keep text white (or change to var(--primary-color) if preferred) */
+}
+
+/* This creates the gradient line UNDER the text */
+header nav a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;          /* Spans the full width of the word */
+  height: 2px;          /* Thickness of the line */
+  background: var(--gradient-primary); /* Your gradient variable */
+  box-shadow: 0 0 8px rgba(253, 103, 38, 0.6); /* Subtle glow */
+  border-radius: 2px;
+}
+
+/* Burger Logic (Desktop hidden) */
+#menu-toggle { 
+  display: none; 
+}
+
+.hamburger {
+  display: none; /* Hidden on desktop */
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--primary-color);
+  padding: 5px; /* Bigger touch area */
+  transition: transform 0.3s ease;
+}
+
+.close-icon {
+  display: none;
+}
+
+.hamburger .open-icon {
+  display: block;
+}
+
+.hamburger .close-icon {
+  display: none;
+}
+
+/* ============================
+            FOOTER
+   ============================ */
+footer {
+  background: var(--surface-color); /* Darker background for contrast */
+  border-top: 4px solid var(--primary-color); /* Thick orange line on top */
+  padding: 3rem 0 2rem;
+  margin-top: auto;
+  color: #fff;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: start; /* Aligns content to top of column */
+}
+
+/* Column Typography */
+.footer-col h3 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+
+/* Logo Styling */
+.footer-logo {
+  width: 180px;      /* Adjust size as needed */
+  height: 120px;      /* Placeholder height */
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.copyright {
+  color: var(--text-color-muted);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* Nav Links */
+.footer-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-nav a {
+  color: var(--text-color);
+  transition: padding-left 0.3s ease, color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--primary-color);
+  padding-left: 5px; /* Subtle slide effect on hover */
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 25px; /* More space between icons since circles are gone */
+  align-items: center;
+}
+
+/* The Link Wrapper - No box, no background */
+.social-icons a {
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.3s ease; /* Keep the subtle jump */
+}
+
+/* The Icon Itself */
+.social-icons i {
+  font-size: 1.5rem; /* Slightly larger visibility */
+  color: #fff;       /* Start White */
+  transition: all 0.3s ease;
+}
+
+/* Hover: Simple Primary Color */
+.social-icons a:hover i {
+  color: var(--primary-color); 
+  /* Optional: Add a glow effect */
+  text-shadow: 0 0 10px rgba(253, 103, 38, 0.6);
+}
+
+/* Hover: Move the icon up slightly */
+.social-icons a:hover {
+  transform: translateY(-3px);
+}
+
+/* ---------------------------
+        MAIN WRAPPER
+   --------------------------- */
+main {
+  padding: 2rem 0;
+  background: var(--surface-color);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+/* ---------------------------
+    GLOBAL BUTTONS & SOCIAL
+   --------------------------- */
+.download-btn, .submit-btn {
+  color: var(--primary-color);
+  padding: 0.8rem 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border: 1px solid var(--primary-color);
+  border-radius: 2px;
+  background: transparent;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-btn:hover, .submit-btn:hover {
+  background: var(--gradient-active);
+  color: var(--text-color);
+  border-color: transparent;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(253, 103, 38, 0.25);
+}
+
+.social-links {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.social-links li {
+  display: inline-block; 
+  margin-right: 25px;
+}
+
+.social-links li a {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+  transition: color 0.3s;
+}
+
+.social-links li a:hover {
+  color: var(--primary-color-light);
+}
+
+.social-links li a .material-icons-outlined {
+  margin-right: 8px;
+  font-size: 1.4rem;
+  position: relative;
+  top: 1px;
+}
+
+/* ---------------------------
+     MOBILE RESPONSIVENESS
+   --------------------------- */
+@media (max-width: 768px) {
+  
+  /* --- Header Layout --- */
+  header .container {
+    flex-wrap: wrap; /* Allows menu to drop to the next line */
+  }
+
+  .hamburger {
+    display: block; /* Show on mobile */
+    z-index: 20;    /* Ensure it sits on top of the menu */
+  }
+
+  /* THE SWITCH LOGIC:
+     When input is checked:
+     1. Hide the Bars
+     2. Show the X
+  */
+  #menu-toggle:checked + .hamburger .open-icon {
+    display: none;
+  }
+
+  #menu-toggle:checked + .hamburger .close-icon {
+    display: block;
+  }
+  
+  /* Optional: Rotate the X for a cool effect */
+  #menu-toggle:checked + .hamburger {
+    transform: rotate(90deg);
+  }
+
+  #menu-toggle:checked ~ nav {
+    display: block; /* Reveal menu when checkbox is checked */
+  }
+
+  /* --- Navigation Logic --- */
+  header nav {
+    display: none; 
+    width: 100%;
+    margin-top: 15px;
+    background: var(--surface-color); /* Prevents transparent overlay on content */
+    padding-bottom: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* --- Vertical Menu List --- */
+  header nav ul {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    align-items: center;    /* Center text horizontally */
+    gap: 20px;              
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  header nav li {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+
+  /* --- Link Styling --- */
+  header nav a {
+    font-size: 1.2rem; /* Larger touch target */
+    padding: 5px 0;
+    display: inline-block; /* Let text define width so underscore matches */
+  }
+
+  /* Center the Active Underscore */
+  header nav a.active::after {
+    width: 50px; 
+    left: 50%;
+    transform: translateX(-50%); /* Centers the line relative to the text */
+    bottom: -5px;
+  }
+  
+  /* --- Page Layout Adjustments --- */
+  #hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  /* Force single column for grids */
+  .cv-header, .footer-grid {
+    grid-template-columns: 1fr; 
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  .footer-logo {
+    margin: 0 auto 1rem auto; /* Center the logo block */
+  }
+  
+  .social-icons {
+    justify-content: center;
+  }
+
+  main {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

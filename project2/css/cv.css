@@ -1,0 +1,169 @@
+/* --- Header Section --- */
+.cv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.cv-main-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+}
+
+.cv-main-header h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: #fff;
+  font-weight: 300; /* Thin */
+  letter-spacing: 1px;
+}
+
+.cv-main-header .contact-info {
+  font-size: 0.95rem;
+  color: var(--text-color-muted);
+  margin-top: 0.5rem;
+  font-weight: 300;
+}
+
+.cv-main-header .contact-info a {
+  color: var(--text-color);
+  font-weight: 300;
+  margin: 0 5px;
+}
+
+.cv-main-header .contact-info a:hover {
+  color: var(--primary-color);
+}
+
+/* --- Main Sections --- */
+.cv-main-section {
+  margin-bottom: 2.5rem;
+}
+
+/* Section Titles (Education, Experience) */
+.cv-main-section h2 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.cv-section h3 {
+  border-bottom: 1px solid var(--surface-color);
+  padding-bottom: 10px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.cv-item {
+  margin-bottom: 1.5rem;
+  padding-left: 15px;
+  border-left: 2px solid var(--surface-color);
+  transition: border-color 0.3s ease;
+}
+
+/* Hover effect for the entry line */
+.cv-item:hover {
+  border-left-color: var(--primary-color);
+}
+
+.cv-entry {
+  margin-bottom: 1.5rem;
+}
+
+/* Flex header for job title/date alignment */
+.cv-entry-header, .cv-entry-subheader {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: baseline;
+  margin-bottom: 0.25rem;
+}
+
+.cv-title {
+  font-size: 1.2rem;
+  font-weight: 600; /* Semi-Bold */
+  color: #fff;
+}
+
+.cv-location, .cv-date {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--primary-color); /* Orange accent for dates */
+  font-weight: 300;
+}
+
+.cv-degree {
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+/* Lists inside entries */
+.cv-entry-list {
+  margin-top: 0.8rem;
+  padding-left: 20px;
+  color: var(--text-color);
+}
+
+.cv-entry-list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* --- Skills & Projects --- */
+.cv-awards-list p, .cv-skills p, .cv-project p {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.cv-awards-list strong, .cv-skills strong, .cv-project-title strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.cv-project {
+  margin-bottom: 1.5rem;
+}
+
+/* --- Download Button Area --- */
+.cv-download {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+
+#educatie, #competente, #experienta {
+  display: none;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .cv-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .cv-main-header h1 {
+    font-size: 2.2rem; /* Smaller title on mobile */
+  }
+
+  .cv-entry-header, .cv-entry-subheader {
+    flex-direction: column; /* Stack Title and Date */
+    gap: 0.2rem;
+  }
+  
+  .cv-date, .cv-location {
+    font-size: 0.85rem;
+  }
+}
