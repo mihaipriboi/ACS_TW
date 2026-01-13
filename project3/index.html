@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Image Processor - Dog API</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1 class="header-title">Dog Image Editor</h1>
+    </header>
+
+    <main>
+      <div class="canvas-area">
+        <canvas id="main-canvas"></canvas>
+      </div>
+
+      <aside class="controls">
+        <button id="new-image-btn">Get New Dog Image</button>
+        <div>
+          <div class="label-row">
+            <label>Brightness</label>
+            <span id="brightness-val">0</span>
+          </div>
+          <input type="range" id="brightness-slider" min="-100" max="100" value="0">
+        </div>
+        <div>
+          <div class="label-row">
+            <label>Contrast</label>
+            <span id="contrast-val">0</span>
+          </div>
+          <input type="range" id="contrast-slider" min="-100" max="100" value="0">
+        </div>
+        <button id="apply-filters">Apply & Process</button>
+        
+        <div class="stats-panel">
+          <h3>Execution Metrics</h3>
+          <ul class="metrics-list" id="metrics-list"></ul>
+        </div>
+      </aside>
+    </main>
+
+    <h3>API Response (JSON)</h3>
+    <section class="json-display">
+      <pre id="json-output">Waiting for data...</pre>
+    </section>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
